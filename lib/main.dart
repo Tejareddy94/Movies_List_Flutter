@@ -56,7 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
               }),
         ],
       ),
-      body: Center(child: Text("Search For the Movies by pressing Search Icon")),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showSearch(context: context, delegate: MainSearch());
+        },
+        child: Icon(Icons.search),
+      ),
+      body:
+          Center(child: Text("Search For the Movies by pressing Search Icon")),
     );
   }
 }

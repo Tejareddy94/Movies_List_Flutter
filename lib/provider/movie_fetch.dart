@@ -10,15 +10,16 @@ class SearchResultsState extends ChangeNotifier {
   bool isFetching = true;
   bool get fetching => isFetching;
 
-  void setFetching(bool fetch){
+  void setFetching(bool fetch) {
     isFetching = fetch;
     notifyListeners();
   }
+
   void fetchResults(String query) async {
-    if(movies==null){
-    setFetching(true);
+    if (movies == null) {
+      setFetching(true);
     }
-    
+
     try {
       final response = await http
           .get(("http://www.omdbapi.com/?apikey=e1d9e9e&s=" + query), headers: {
@@ -32,7 +33,7 @@ class SearchResultsState extends ChangeNotifier {
           MovieModel movieModel = MovieModel.fromJson(movie);
           movies.add(movieModel);
         }
-       setFetching(false);
+        setFetching(false);
         print(movies);
       } else {
         return null;

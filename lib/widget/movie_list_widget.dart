@@ -43,11 +43,11 @@ class _MovieListState extends State<MovieList> {
                                 borderRadius: BorderRadius.circular(15),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.withOpacity(0.3),
+                                    color: Colors.grey.withOpacity(0.5),
                                     blurRadius: 10.0,
                                     spreadRadius: 0.0,
                                     offset: Offset(
-                                      5.0,
+                                      3.0,
                                       1.0,
                                     ),
                                   ),
@@ -57,7 +57,6 @@ class _MovieListState extends State<MovieList> {
                               width: double.infinity,
                               margin: EdgeInsets.all(
                                   MediaQuery.of(context).size.width * 0.04),
-
                               height: MediaQuery.of(context).size.height * 0.19,
                               child: Row(
                                 children: [
@@ -141,17 +140,31 @@ class _MovieListState extends State<MovieList> {
                               ),
                             ),
                             Positioned(
-                                left: 40,
+                                left: 35,
                                 top: 0,
                                 child: Container(
                                   decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.8),
+                                          blurRadius: 14.0,
+                                          spreadRadius: 1.5,
+                                          offset: Offset(
+                                            0.0,
+                                            5.0,
+                                          ),
+                                        ),
+                                      ],
                                       color: Colors.red,
                                       borderRadius: BorderRadius.circular(30)),
                                   // height: 120,
-                                  width: MediaQuery.of(context).size.width / 4,
-                                  child: Image.network(
-                                    resultsState.movies[index].poster,
-                                    fit: BoxFit.fitHeight,
+                                  width: MediaQuery.of(context).size.width / 3.8,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Image.network(
+                                      resultsState.movies[index].poster,
+                                      fit: BoxFit.fitHeight,
+                                    ),
                                   ),
                                 )),
                           ],
